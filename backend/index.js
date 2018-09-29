@@ -21,16 +21,14 @@ app.get('/', function (request, response) {
       response.status(500).send(error);
       return;
     }
-
     response.send(result);
   });
 });
 
 app.post('/', function (request, response) {
   db.collection('TODO').insert(request.body)
-}){
-
-}
+  response.send(request.body)
+})
 
 app.listen(3000, function () {
   console.log('The service is running!');
