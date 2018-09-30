@@ -25,11 +25,23 @@ app.get('/', function (request, response) {
   });
 });
 
+app.get('/one', function (request, response) {
+  db.collection('TODO').find().toArray(function (error, result) {
+    if (error) {
+      response.status(500).send(error);
+      return;
+    }
+    var index = Math.floor(Math.random() * result.length);
+    var quote = result[index]
+    response.send(quote);
+  });
+});
+
 app.post('/', function (request, response) {
-  db.collection('TODO').insert(request.body)
+  db.collection('TODO').insertOne(request.body)
   response.send(request.body)
 })
 
 app.listen(3000, function () {
   console.log('The service is running!');
-}
+})
