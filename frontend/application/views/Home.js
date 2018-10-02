@@ -14,7 +14,8 @@ constructor(props) {
 }
 
 fetchPositiveQute(){
-    fetch('http://127.0.0.1:3000/one')
+  console.log("i fetchen");
+    fetch('http://192.168.1.75:3000/one')
     .then(response => response.json())
     .then(result => {
       console.log('Här fetchas från databasen');
@@ -34,7 +35,7 @@ fetchPositiveQute(){
           title="Get positive quote"
           color="#841584"
         />
-      <TouchableHighlight style={styles.imageContainer} onPress={() => {console.log("frefrefrefrefrefrefrefrefre");}}>
+      <TouchableHighlight style={styles.imageContainer} onPress={() => {navigate("AddRT")}}>
         <Image
 
           source={require('../assets/add.png')}
